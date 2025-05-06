@@ -60,6 +60,14 @@ const slides = [
     height: auto;
   }
 
+  .swiper-wrapper {
+    transition-timing-function: linear;
+  }
+
+  .swiper-slide {
+    width: auto;
+  }
+
   .swiper-button-next,
   .swiper-button-prev {
     color: #000;
@@ -68,43 +76,21 @@ const slides = [
 
 <script>
   import Swiper from "swiper/bundle";
-  import { Navigation, Pagination } from "swiper/modules";
+  import { Autoplay } from "swiper/modules";
 
   const swiper = new Swiper(".swiper", {
-    modules: [Navigation, Pagination],
+    modules: [Autoplay],
     direction: "horizontal",
     loop: true,
-    speed: 3000,
+    speed: 7000,
     autoplay: {
       delay: 0,
       disableOnInteraction: false,
+      pauseOnMouseEnter: false,
     },
-    breakpoints: {
-      320: {
-        slidesPerView: 2,
-        spaceBetween: 20,
-      },
-      480: {
-        slidesPerView: 3,
-        spaceBetween: 30,
-      },
-      640: {
-        slidesPerView: 4,
-        spaceBetween: 40,
-      },
-    },
-    slidesPerView: 3,
-    spaceBetween: 80,
-
-    // If we need pagination
-    pagination: {
-      el: ".swiper-pagination",
-    },
-
-    // Navigation arrows
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+    slidesPerView: 4,
+    spaceBetween: 40,
+    freeMode: true,
+    allowTouchMove: false,
   });
 </script>
