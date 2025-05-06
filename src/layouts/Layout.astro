@@ -3,6 +3,7 @@ import { ClientRouter } from "astro:transitions";
 import Footer from "../components/layouts/Footer.astro";
 import Navbar from "../components/layouts/Navbar.astro";
 import "../styles/global.css";
+import "aos/dist/aos.css";
 ---
 
 <!doctype html>
@@ -36,3 +37,8 @@ import "../styles/global.css";
     height: 100%;
   }
 </style>
+
+<script>
+  import AOS from "aos";
+  AOS.init();
+</script>
