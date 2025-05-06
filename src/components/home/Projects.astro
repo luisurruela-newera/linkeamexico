@@ -1,0 +1,110 @@
+---
+import slide1 from "../../assets/images/projects/web-01.jpg";
+import slide2 from "../../assets/images/projects/web-02.jpg";
+import slide3 from "../../assets/images/projects/web-03.jpg";
+import slide4 from "../../assets/images/projects/web-04.jpg";
+import slide5 from "../../assets/images/projects/web-05.jpg";
+import slide6 from "../../assets/images/projects/web-06.jpg";
+import slide7 from "../../assets/images/projects/web-07.jpg";
+import slide8 from "../../assets/images/projects/web-08.jpg";
+import slide9 from "../../assets/images/projects/web-09.jpg";
+import slide10 from "../../assets/images/projects/web-10.jpg";
+import slide11 from "../../assets/images/projects/web-11.jpg";
+import slide12 from "../../assets/images/projects/web-12.jpg";
+
+import "swiper/css/bundle";
+
+const slides = [
+  slide1,
+  slide2,
+  slide3,
+  slide4,
+  slide5,
+  slide6,
+  slide7,
+  slide8,
+  slide9,
+  slide10,
+  slide11,
+  slide12,
+];
+---
+
+<section id="projects" class="py-10">
+  <div class="w-full">
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        {
+          slides.map((slide) => (
+            <div class="swiper-slide">
+              <img src={slide.src} alt="" />
+            </div>
+          ))
+        }
+      </div>
+      <!-- If we need pagination -->
+      <!-- <div class="swiper-pagination"></div> -->
+
+      <!-- If we need navigation buttons -->
+      <!-- <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div> -->
+    </div>
+  </div>
+</section>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: auto;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #000;
+  }
+</style>
+
+<script>
+  import Swiper from "swiper/bundle";
+  import { Navigation, Pagination } from "swiper/modules";
+
+  const swiper = new Swiper(".swiper", {
+    modules: [Navigation, Pagination],
+    direction: "horizontal",
+    loop: true,
+    speed: 3000,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      480: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+      640: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+      },
+    },
+    slidesPerView: 3,
+    spaceBetween: 80,
+
+    // If we need pagination
+    pagination: {
+      el: ".swiper-pagination",
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
