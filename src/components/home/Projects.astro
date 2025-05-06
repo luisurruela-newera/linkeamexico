@@ -32,29 +32,17 @@ const slides = [
 
 <section id="projects" class="py-10 overflow-hidden">
   <div class="w-full">
-    <div
-      class="swiper"
-      data-aos="fade-left"
-      data-aos-duration="3000"
-      data-aos-delay="300"
-    >
-      <!-- Additional required wrapper -->
+    <div class="swiper" data-aos="zoom-in" data-aos-duration="2000">
       <div class="swiper-wrapper">
         <!-- Slides -->
         {
           slides.map((slide) => (
             <div class="swiper-slide">
-              <img src={slide.src} alt="" />
+              <img src={slide.src} />
             </div>
           ))
         }
       </div>
-      <!-- If we need pagination -->
-      <!-- <div class="swiper-pagination"></div> -->
-
-      <!-- If we need navigation buttons -->
-      <!-- <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div> -->
     </div>
   </div>
 </section>
@@ -87,6 +75,7 @@ const slides = [
     modules: [Autoplay],
     direction: "horizontal",
     loop: true,
+    initialSlide: 4,
     speed: 7000,
     autoplay: {
       delay: 0,
