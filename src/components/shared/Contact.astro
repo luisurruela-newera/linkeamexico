@@ -1,0 +1,155 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section id="contact" class="py-10 bg-black/90 text-white/90">
+  <div class="container mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Content  -->
+      <div class="flex items-center pe-10">
+        <div class="max-w-2/3">
+          <h2 class="text-5xl font-bold mb-4">En Contacto</h2>
+          <p class="text-white/80">
+            Te interesa alguno de mis servicios? Estaré encantado de
+            ayudarte.Envíame un mensaje y en breve me pondré en contacto contigo
+            para ponernos de acuerdo.
+          </p>
+
+          <div class="mt-10">
+            <ul class="text-white/80 flex flex-col gap-2 text-sm">
+              <li class="flex items-center gap-2">
+                <Icon
+                  name="pixelarticons:home"
+                  size={18}
+                  class="text-white/50"
+                />
+                Villahermosa, Tabasco, México
+              </li>
+              <li class="flex items-center gap-2">
+                <Icon
+                  name="pixelarticons:device-phone"
+                  size={18}
+                  class="text-white/50"
+                />
+                <a
+                  href="tel:9932090424"
+                  class="hover:text-white transition duration-300 ease-linear"
+                  >99 32 09 04 24</a
+                >
+              </li>
+              <li class="flex items-center gap-2">
+                <Icon
+                  name="pixelarticons:mail"
+                  size={18}
+                  class="text-white/50"
+                />
+                <a
+                  href="mailto:luis.urruela@gmail.com"
+                  target="_blank"
+                  class="hover:text-white transition duration-300 ease-linear"
+                  >luis.urruela@gmail.com</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Form -->
+      <div>
+        <form
+          id="contactForm"
+          class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4"
+        >
+          <div class="mb-4">
+            <label for="name" class="block text-gray-700 text-sm font-bold mb-2"
+              >Nombre:</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              for="phone"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Teléfono:</label
+            >
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              for="message"
+              class="block text-gray-700 text-sm font-bold mb-2">Mensaje:</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            ></textarea>
+          </div>
+          <div class="flex items-center justify-between">
+            <button
+              type="submit"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Enviar Mensaje
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("contactForm");
+
+  if (form) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(event.target as HTMLFormElement);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch("/api/send-whatsapp", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          alert("Mensaje enviado. ¡Te contactaremos pronto!");
+          const contactForm = document.getElementById(
+            "contactForm"
+          ) as HTMLFormElement;
+          if (contactForm) {
+            contactForm.reset();
+          }
+        } else {
+          alert(
+            "Hubo un error al enviar el mensaje. Intenta de nuevo más tarde."
+          );
+        }
+      } catch (error) {
+        console.error("Error al enviar el formulario:", error);
+        alert(
+          "Hubo un error al enviar el mensaje. Intenta de nuevo más tarde."
+        );
+      }
+    });
+  }
+</script>
