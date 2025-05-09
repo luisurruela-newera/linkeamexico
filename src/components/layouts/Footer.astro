@@ -3,14 +3,7 @@ import { Icon } from "astro-icon/components";
 import SocialMedia from "../shared/SocialMedia.astro";
 ---
 
-<div
-  id="footer"
-  class="bg-gray-100 overflow-hidden"
-  data-aos="fade-up"
-  data-aos-duration="3000"
-  data-aos-delay="300"
-  data-aos-anchor-placement="top-bottom"
->
+<div id="footer" class="bg-gray-50 overflow-hidden">
   <div class="container mx-auto text-center py-10">
     <div
       class="logo flex items-center justify-center gap-2 text-black font-bold text-2xl"
@@ -20,18 +13,35 @@ import SocialMedia from "../shared/SocialMedia.astro";
 
     <nav>
       <ul
-        class="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-8 mt-4 text-gray-600"
+        class="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-8 mt-4 text-gray-500"
       >
-        <li><a href="#">Términos y condiciones</a></li>
-        <li><a href="#">Políticas de privacidad</a></li>
-        <li><a href="#">Precios y Planes</a></li>
-        <li><a href="#">Dudas y consultas</a></li>
+        <li>
+          <a href="#" class="hover:text-gray-800 transition duration-300"
+            >Términos y condiciones</a
+          >
+        </li>
+        <li>
+          <a href="#" class="hover:text-gray-800 transition duration-300"
+            >Políticas de privacidad</a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-gray-800 transition duration-300"
+            >Precios y Planes</a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-gray-800 transition duration-300"
+            >Dudas y consultas</a>
+        </li>
       </ul>
     </nav>
-    <SocialMedia />
+
+    <div>
+      <SocialMedia />
+    </div>
   </div>
+
   <div
-    class="bg-black w-full h-auto py-8 text-gray-600 flex-col items-center justify-center text-xs md:text-sm"
+    class="bg-gray-200 w-full h-auto py-6 text-gray-400 flex-col items-center justify-center text-xs md:text-sm"
   >
     <p class="mx-3 text-center">LINKEA México | Soluciones Digitales</p>
   </div>
