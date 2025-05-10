@@ -10,8 +10,11 @@ export default defineConfig({
   site: "https://luisurruela-newera.github.io",
   base: "/linkeamexico/",
   output: "server",
+
   vite: {
     plugins: [tailwindcss()],
   },
+
   integrations: [icon(), react(), netlify()],
+  adapter: netlify(),
 });
