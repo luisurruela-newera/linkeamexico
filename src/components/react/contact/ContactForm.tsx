@@ -18,12 +18,18 @@ function ContactForm({}: FormProps) {
     message: "",
   });
 
+  const [response, setResponse] = useState<string>("");
+  const [buttonTitle, setButtonTitle] = useState<string>("Enviar mensaje");
+  const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
+
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setState((prevState) => ({
       ...prevState,
       [name]: value,
     }));
+
+    validateForm() ? setButtonDisabled(false) : setButtonDisabled(true);
   };
 
   const handleTextAreaChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -32,10 +38,21 @@ function ContactForm({}: FormProps) {
       ...prevState,
       [name]: value,
     }));
+    validateForm() ? setButtonDisabled(false) : setButtonDisabled(true);
+  };
+
+  const validateForm = () => {
+    return (
+      state.name.trim() !== "" &&
+      state.phone.trim() !== "" &&
+      state.message.trim() !== ""
+    );
   };
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
+    setButtonTitle("Enviando...");
+    setButtonDisabled(true);
 
     try {
       const formData = new FormData(event.currentTarget as HTMLFormElement);
@@ -48,17 +65,39 @@ function ContactForm({}: FormProps) {
       const data = await response.json();
 
       if (response.ok) {
-        alert("Mensaje enviado correctamente. ¡Gracias!");
-        setState({ name: "", phone: "", message: "" });
+        showSuccessMessage();
       } else {
-        alert(
-          `Error al enviar el mensaje: ${data.error || "Inténtalo de nuevo."}`
-        );
+        showErrorMessage();
       }
     } catch (error) {
-      console.error("Error al enviar el formulario:", error);
-      alert("Hubo un error al enviar el formulario. Inténtalo de nuevo.");
+      showErrorMessage();
     }
+  };
+
+  const showSuccessMessage = () => {
+    resetForm();
+    setButtonDisabled(false);
+    setButtonTitle("Enviar Mensaje");
+    setResponse("Mensaje enviado correctamente. ¡Gracias!");
+
+    setTimeout(() => {
+      setResponse("");
+    }, 9000);
+  };
+
+  const showErrorMessage = () => {
+    resetForm();
+    setButtonDisabled(false);
+    setButtonTitle("Enviar Mensaje");
+    setResponse("Hubo un error al enviar el mensaje. Inténtalo de nuevo.");
+
+    setTimeout(() => {
+      setResponse("");
+    }, 9000);
+  };
+
+  const resetForm = () => {
+    setState({ name: "", phone: "", message: "" });
   };
 
   return (
@@ -82,6 +121,7 @@ function ContactForm({}: FormProps) {
             id="name"
             name="name"
             required
+            value={state.name}
             className="border text-sm border-gray-700 w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
             onChange={handleChange}
           />
@@ -97,6 +137,8 @@ function ContactForm({}: FormProps) {
             type="tel"
             id="phone"
             name="phone"
+            value={state.phone}
+            required
             className="border text-sm border-gray-700 w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
             onChange={handleChange}
           />
@@ -113,18 +155,23 @@ function ContactForm({}: FormProps) {
             name="message"
             rows={5}
             required
+            value={state.message}
             className="border text-sm border-gray-700 w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
             placeholder='Con un "Hola Luis, me interesan tus servicios" es suficiente. Te mandaré mensaje de vuelta.'
             onChange={handleTextAreaChange}
           ></textarea>
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-center md:justify-start gap-3">
           <button
             type="submit"
-            className="bg-purple-600 hover:bg-purple-800 text-white/95 font-bold cursor-pointer py-2 px-4 focus:outline-none focus:shadow-outline w-full md:w-auto"
+            className="bg-purple-600 hover:bg-purple-800 text-white/95 font-bold cursor-pointer py-2 px-4 focus:outline-none focus:shadow-outline w-full md:w-auto disabled:opacity-50 disabled:cursor-default hover:disabled:bg-purple-600"
+            disabled={buttonDisabled}
           >
-            Enviar Mensaje
+            {buttonTitle}
           </button>
+          <p className="text-white/90 text-center md:text-start text-sm">
+            {response}
+          </p>
         </div>
       </form>
     </div>

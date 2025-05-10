@@ -25,7 +25,7 @@ export const POST: APIRoute = async ({ request }) => {
     const mailOptions = {
       from: 'luis.urruela@gmail.com',
       to: 'luis.urruela@gmail.com', // La dirección a la que quieres recibir los mensajes
-      subject: '[LINKEA ] Nuevo mensaje',
+      subject: '[LINKEA] Nuevo mensaje',
       text: `Nombre: ${name}\nTeléfono: ${phone}\nMensaje: ${message}`,
     };
 
