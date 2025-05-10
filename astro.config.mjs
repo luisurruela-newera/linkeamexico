@@ -8,7 +8,6 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
   site: "https://luisurruela-newera.github.io",
-  base: "/linkeamexico/",
   output: "server",
 
   vite: {
