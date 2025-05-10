@@ -1,7 +1,7 @@
 [build]
   command = "astro build"
   publish = "dist"
-  environment = { NODE_VERSION: 20.11.1 }
+  environment = { NODE_VERSION = 20.11.1 }
 
 [functions]
   directory = ".netlify/functions-internal"
