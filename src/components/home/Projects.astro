@@ -38,7 +38,8 @@ const slides = [
         {
           slides.map((slide) => (
             <div class="swiper-slide">
-              <img src={slide.src} />
+              <img src={slide.src} loading="lazy" />
+              <div class="swiper-lazy-preloader" />
             </div>
           ))
         }
@@ -58,6 +59,7 @@ const slides = [
   }
 
   .swiper-slide {
+    pointer-events: none;
     width: auto;
   }
 
