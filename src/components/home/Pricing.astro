@@ -5,52 +5,185 @@ import { Icon } from "astro-icon/components";
 <section id="pricing" class="py-10 text-gray-700">
   <h2 class="my-10 text-4xl font-bold text-center">Precios y Paquetes</h2>
   <div
-    class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-gray-300"
+    class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-white"
   >
     <div class="bg-black/90 w-full min-h-[300px] rounded-4xl shadow-lg p-10">
-      <h3 class="text-3xl font-bold text-white">Basic</h3>
-      <p>Basic features. Get started completely for free.</p>
-      <ul class="mt-8">
+      <h3 class="text-3xl font-bold">Web Express</h3>
+      <p class="mt-3">
+        Diseñado para personas o empresas que desean iniciar su presencia en
+        internet.
+      </p>
+      <div class="real-price mt-5 line-through">$9,999.00</div>
+      <div class="final-price text-lime-400 font-bold text-2xl mt-5">
+        $5,999.00 MXN <span class="text-base text-white font-normal">+IVA</span>
+      </div>
+      <ul class="mt-8 text-white">
         <li class="flex gap-1">
-          <Icon name="pixelarticons:check" size={24} color="#5CE65C" />
-          <span class="text-gray-200">Firts feature</span>
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Diseño de 5 páginas</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Formulario de Contacto</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>2 Revisiones</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Alta de 6 Productos/Servicios</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Optimización para buscadores</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Soporte Técnico por 30 días</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Capacitación</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Dominio y Hosting (1 año)</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Certificado SSL</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Legales para tu sitio</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Entrega en 7 días hábiles</span>
         </li>
       </ul>
       <a
         href="#"
         class="w-full mt-5 bg-purple-600 hover:bg-purple-800 transition duration-300 text-white font-bold py-2 px-4 rounded block"
-        >Buy Now</a
+        >Comprar ahora</a
       >
+      <div class="mt-5"><a href="#">o agenda una llamada</a></div>
     </div>
     <div class="bg-black/90 w-full min-h-[300px] rounded-4xl shadow-lg p-10">
-      <h3 class="text-3xl font-bold text-white">Pro</h3>
-      <p>Basic features. Get started completely for free.</p>
-      <ul class="mt-8">
+      <h3 class="text-3xl font-bold">Web Premium</h3>
+      <p class="mt-3">
+        Diseñado para personas o empresas que quieren vender en línea o crecer
+        tu negocio.
+      </p>
+      <div class="real-price mt-5 line-through">$11,999.00</div>
+      <div class="final-price text-lime-400 font-bold text-2xl mt-5">
+        $7,999.00 MXN <span class="text-base text-white font-normal">+IVA</span>
+      </div>
+      <ul class="mt-8 text-white">
         <li class="flex gap-1">
-          <Icon name="pixelarticons:check" size={24} color="#5CE65C" />
-          <span class="text-gray-200">Firts feature</span>
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Web Express +</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Diseño de 7 páginas</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Formulario de Contacto</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>3 Revisiones</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Alta de 12 Productos/Servicios</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Pagos en línea</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Comercio en línea</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Configuración de Mailing List</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Display de Reseñas</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Entrega en 10 días hábiles</span>
         </li>
       </ul>
       <a
         href="#"
-        class="w-full mt-8 bg-purple-600 hover:bg-purple-800 transition duration-300 text-white font-bold py-2 px-4 rounded block"
-        >Buy Now</a
+        class="w-full mt-11 bg-purple-600 hover:bg-purple-800 transition duration-300 text-white font-bold py-2 px-4 rounded block"
+        >Comprar ahora</a
       >
+      <div class="mt-5"><a href="#">o agenda una llamada</a></div>
     </div>
     <div class="bg-black/90 w-full min-h-[300px] rounded-4xl shadow-lg p-10">
-      <h3 class="text-3xl font-bold text-white">Social Media</h3>
-      <p>Basic features. Get started completely for free.</p>
-      <ul class="mt-8">
+      <h3 class="text-3xl font-bold">Web PRO</h3>
+      <p class="mt-3">
+        Diseñado para personas o empresas que desean una solución con todas las
+        herramientas de marketing.
+      </p>
+      <div class="real-price mt-5 line-through">$16,999.00</div>
+      <div class="final-price text-lime-400 font-bold text-2xl mt-5">
+        $12,999.00 MXN <span class="text-base text-white font-normal">+IVA</span
+        >
+      </div>
+      <ul class="mt-8 text-white">
         <li class="flex gap-1">
-          <Icon name="pixelarticons:check" size={24} color="#5CE65C" />
-          <span class="text-gray-200">Firts feature</span>
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Web Premium +</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Revisiones Ilimitadas</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Optimización para buscadores</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Sistema de citas en línea</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Configuración de Google Tag Manager</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Configuración de Pixel de Facebook</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Configuración Google Analytics</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Integración con Sistema Interno</span>
+        </li>
+        <li class="flex gap-1">
+          <Icon name="pixelarticons:check" size={24} />
+          <span>Entrega en 15 días hábiles</span>
         </li>
       </ul>
       <a
         href="#"
-        class="w-full mt-5 bg-purple-600 hover:bg-purple-800 transition duration-300 text-white font-bold py-2 px-4 rounded block"
-        >Buy Now</a
+        class="w-full mt-17 bg-purple-600 hover:bg-purple-800 transition duration-300 text-white font-bold py-2 px-4 rounded block"
+        >Comprar ahora</a
       >
+      <div class="mt-5"><a href="#">o agenda una llamada</a></div>
     </div>
   </div>
 </section>
