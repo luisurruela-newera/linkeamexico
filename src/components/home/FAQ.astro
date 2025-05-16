@@ -1,58 +1,122 @@
 ---
-const faqs = [
+const faqs1 = [
     {
-        question: "¿Cuál es su política de devoluciones?",
-        answer: "Nuestra política de devoluciones permite devoluciones dentro de los 30 días posteriores a la compra, siempre que el producto esté en su estado original y con el embalaje intacto. Por favor, contacta a nuestro servicio al cliente para iniciar el proceso.",
+        question: "¿Cuál es el tiempo de entrega?",
+        answer: "Los tiempos de entrega van de 7 a 15 días hábiles, dependiendo del tipo de Sitios Web contratado. Sitios Web Express (7 días hábiles). Sitios Web Premium (10 días hábiles) y Sitios Web PRO (15 días hábiles).",
     },
     {
-        question: "¿Cómo puedo rastrear mi pedido?",
-        answer: "Una vez que tu pedido haya sido enviado, recibirás un correo electrónico de confirmación con un número de seguimiento. Puedes usar este número en el sitio web del transportista para ver el estado actual de tu envío.",
+        question: "¿Qué tengo que hacer yo?",
+        answer: "Tus responsabilidades dentro del proyecto son compartir los requerimientos de tu sitio web, proporcionar tu contenido y material fotografíco así como tu material de marca (logotipo).",
     },
     {
-        question: "¿Ofrecen envío internacional?",
-        answer: "Sí, ofrecemos envío internacional a la mayoría de los países. Los costos de envío y los tiempos de entrega varían según el destino. Puedes ver las opciones disponibles durante el proceso de pago.",
+        question: "¿Qué pasa si no me gusta el diseño?",
+        answer: "Nuestra prioridad es que estés completamente satisfecho con el resultado final. Por eso, durante el proceso de diseño, trabajamos contigo, incorporando tus ideas y comentarios en cada etapa.Tu sitio web incluye revisiones para asegurar tu satisfacción.",
     },
     {
-        question: "¿Qué métodos de pago aceptan?",
-        answer: "Aceptamos una variedad de métodos de pago, incluyendo tarjetas de crédito/débito (Visa, MasterCard, American Express), PayPal y transferencias bancarias directas. Todos los pagos son procesados de forma segura.",
+        question: "¿Podré hacer cambios a mi página por mi cuenta?",
+        answer: "Si, tu sitio web cuenta con un sistema de gestión de contenidos para que puedas actualizar tu contenido fácilmente.  Además te brindamos una capacitación fácil.",
+    },
+    {
+        question: "¿Mi sitio es responsivo?",
+        answer: "100%, los sitios web se ven bien en todas las pantallas, teléfonos, tablets, laptops y computadoras de escritorio.",
+    },
+];
+
+const faqs2 = [
+    {
+        question: "¿Mi sitio aparecerá en Google?",
+        answer: "implementamos las mejores prácticas básicas de SEO durante el proceso de diseño y desarrollo para asegurarnos de que tu sitio web sea compatible con los motores de búsqueda. Para estrategias de SEO más avanzadas y optimización continua, ofrecemos servicios adicionales adaptados a tus necesidades específicas.",
+    },
+    {
+        question: "¿Qué pasa si ya tengo un sitio web?",
+        answer: "Hacemos un rediseño e implementamos un sitio web nuevo con todo lo que necesitas sin perder tu posicionamiento organico.  ",
+    },
+    {
+        question: "¿El sitio web es mío?",
+        answer: "Si, tu sitio web es completamente tuyo. Nos esforzaremos a que no suceda, pero si algún día quieres cambiarte de proveedor de servicio, te puedes llevar tu página a otro servidor.",
+    },
+    {
+        question:
+            "¿Puedo integrar herramientas o plataformas externas en mi sitio web?",
+        answer: "Trabajamos con todas las herramientas necesarias para tu sitio web como…. Carrito de Compras, Integración de Analíticas, Pagos en Línea, Mailing List, Sistema de Citas, Mensajería Instantánea, Integración de Redes Sociales, Google Maps, Pagos en Crypto Moneda, Formularios de contacto",
+    },
+    {
+        question: "¿Qué incluye mi sitio web?",
+        answer: "Dominio 1 año (opcional), Hosting 1 año (opcional), Certificado de Seguridad SSL, Optimización de Velocidad, Optimización SEO Técnico, Diseño y Desarrollo, Política De Privacidad, Diseño Responsivo, Acceso a Control de Contenido, Capacitación, Estrategia de Marketing",
     },
 ];
 ---
 
-<section id="faq" class="py-5">
-    <div class="container mx-auto">
+<section id="faq" class="pt-8 pb-20">
+    <div class="container px-2 md:px-0 md:mx-auto">
         <h2 class="text-3xl font-bold text-center mb-8">
             Preguntas Frecuentes
         </h2>
-        <div class="space-y-4">
-            {
-                faqs.map((faq, index) => (
-                    <details class="group bg-white p-6 rounded-lg shadow-md">
-                        <summary class="flex justify-between items-center font-semibold cursor-pointer list-none">
-                            <span>{faq.question}</span>
-                            <span class="transition-transform duration-500 group-open:rotate-180">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
-                                    class="w-6 h-6"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                                    />
-                                </svg>
-                            </span>
-                        </summary>
-                        <div class="mt-4 text-gray-700">
-                            <p>{faq.answer}</p>
-                        </div>
-                    </details>
-                ))
-            }
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+                <div class="space-y-4">
+                    {
+                        faqs1.map((faq, index) => (
+                            <details class="group bg-white p-6 rounded-lg shadow-md">
+                                <summary class="flex justify-between items-center font-semibold cursor-pointer list-none">
+                                    <span>{faq.question}</span>
+                                    <span class="transition-transform duration-500 group-open:rotate-180">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke-width="1.5"
+                                            stroke="currentColor"
+                                            class="w-6 h-6"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                                            />
+                                        </svg>
+                                    </span>
+                                </summary>
+                                <div class="mt-4 text-gray-700">
+                                    <p>{faq.answer}</p>
+                                </div>
+                            </details>
+                        ))
+                    }
+                </div>
+            </div>
+            <div>
+                <div class="space-y-4">
+                    {
+                        faqs2.map((faq, index) => (
+                            <details class="group bg-white p-6 rounded-lg shadow-md">
+                                <summary class="flex justify-between items-center font-semibold cursor-pointer list-none">
+                                    <span>{faq.question}</span>
+                                    <span class="transition-transform duration-500 group-open:rotate-180">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke-width="1.5"
+                                            stroke="currentColor"
+                                            class="w-6 h-6"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                                            />
+                                        </svg>
+                                    </span>
+                                </summary>
+                                <div class="mt-4 text-gray-700">
+                                    <p>{faq.answer}</p>
+                                </div>
+                            </details>
+                        ))
+                    }
+                </div>
+            </div>
         </div>
     </div>
 </section>
