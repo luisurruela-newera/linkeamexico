@@ -1,0 +1,63 @@
+---
+import { Icon } from "astro-icon/components";
+const services = [
+    { title: "SEO" },
+    { title: "Logotipos" },
+    { title: "Pixeles y Tags" },
+    { title: "Campañas de Ads" },
+    { title: "Desarrollo Web" },
+    { title: "Apps Móviles" },
+    { title: "Gestión de Redes Sociales" },
+    { title: "Gestión de Sitio Web" },
+    { title: "Asistente Virtual" },
+    { title: "Copywriting" },
+    { title: "Diseño de Contenido" },
+    { title: "Hosting" },
+];
+---
+
+<section id="extra-services" class="py-5 text-purple-200 px-2 md:px-0">
+    <div class="container mx-auto px-2 md:px-0 bg-purple-950 rounded-3xl">
+        <div class="grid grid-col-1 md:grid-cols-2 gap-0">
+            <div class="flex items-center py-5 md:ps-10">
+                <div class="text-center md:text-start w-full">
+                    <h3 class="text-white text-3xl md:text-4xl font-bold mb-2">
+                        ¿Necesitas un plan personalizado?
+                    </h3>
+                    <p class="my-3">Agenda una llamada GRATUITA</p>
+                    <div class="mt-5 flex justify-center md:justify-start">
+                        <a
+                            href="#"
+                            class="flex items-center gap-2 px-8 py-3 rounded-xl bg-white text-purple-950 w-fit hover:bg-black hover:text-white transition-all duration-300"
+                            >Agendar una llamada <Icon
+                                name="pixelarticons:arrow-right"
+                                size={18}
+                                class="mt-1"
+                            /></a
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="md:p-10 py-3">
+                <h3
+                    class="text-white text-lg text-center md:text-start font-bold mb-5"
+                >
+                    Servicios Adicionales
+                </h3>
+                <ul class="grid grid-cols-2 gap-2">
+                    {
+                        services.map((service) => (
+                            <li class="flex items-center mb-1 bg-gradient-to-r from-purple-900 to-transparent rounded-md p-3">
+                                <Icon
+                                    name="pixelarticons:chevron-right"
+                                    size={18}
+                                />
+                                <span class="text-xs">{service.title}</span>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
