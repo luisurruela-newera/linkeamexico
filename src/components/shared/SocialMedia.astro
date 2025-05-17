@@ -1,5 +1,16 @@
 ---
 import { Icon } from "astro-icon/components";
+
+const links = [
+  {
+    icon: "la:instagram",
+    link: "#",
+  },
+  {
+    icon: "la:twitter",
+    link: "#",
+  },
+];
 ---
 
 <link
@@ -10,36 +21,19 @@ import { Icon } from "astro-icon/components";
 />
 
 <div class="py-6">
-  <ul class="flex justify-center items-center gap-4 mt-4">
-    <li>
-      <a
-        href="#"
-        class="flex relative justify-center items-center text-center w-[60px] h-[60px] bg-gray-50 rounded-full overflow-hidden z-10 border-3 border-gray-50 gap-5"
-      >
-        <Icon name="la:instagram" class="icon" size={35} />
-      </a>
-    </li>
-    <li>
-      <a
-        href="#"
-        class="flex relative justify-center items-center text-center w-[60px] h-[60px] bg-gray-50 rounded-full overflow-hidden z-10 border-3 border-gray-50 gap-5"
-        ><i class="fab fa-twitter icon"></i></a
-      >
-    </li>
-    <li>
-      <a
-        href="#"
-        class="flex relative justify-center items-center text-center w-[60px] h-[60px] bg-gray-50 rounded-full overflow-hidden z-10 border-3 border-gray-50 gap-5"
-        ><i class="fab fa-linkedin-in icon"></i></a
-      >
-    </li>
-    <li>
-      <a
-        href="#"
-        class="flex relative justify-center items-center text-center w-[60px] h-[60px] bg-gray-50 rounded-full overflow-hidden z-10 border-3 border-gray-50 gap-5"
-        ><i class="fab fa-google-plus-g icon"></i></a
-      >
-    </li>
+  <ul class="flex justify-start items-center gap-2 mt-4 ms-1">
+    {
+      links.map((link) => (
+        <li>
+          <a
+            href="#"
+            class="flex relative justify-center items-center text-center p-1  w-[32px] h-[32px] rounded-full overflow-hidden z-10 border-2 border-black bg-purple-600"
+          >
+            <Icon name={link.icon} class="icon" size={35} />
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </div>
 
@@ -50,7 +44,7 @@ import { Icon } from "astro-icon/components";
 
   ul li a .icon {
     position: relative;
-    color: #555555;
+    color: #ffffff;
     transition: 0.5s;
     z-index: 3;
   }

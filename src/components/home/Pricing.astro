@@ -1,0 +1,104 @@
+---
+import { Icon } from "astro-icon/components";
+
+const products = [
+  {
+    title: "Web Express",
+    description:
+      "Diseñado para personas o empresas que desean iniciar su presencia en internet.",
+    price: "$9,999.00",
+    finalPrice: "$5,999.00",
+    features: [
+      "Diseño de 5 páginas",
+      "Formulario de Contacto",
+      "2 Revisiones",
+      "Alta de 6 Productos/Servicios",
+      "Optimización para buscadores",
+      "Soporte Técnico por 30 días",
+      "Capacitación",
+      "Dominio y Hosting (1 año)",
+      "Certificado SSL",
+      "Legales para tu sitio",
+      "Entrega en 7 días hábiles",
+    ],
+    link: "#",
+  },
+  {
+    title: "Web Premium",
+    description:
+      "Diseñado para personas o empresas que quieren vender en línea o crecer tu negocio.",
+    price: "$11,999.00",
+    finalPrice: "$7,999.00",
+    features: [
+      "Web Express +",
+      "Diseño de 7 páginas",
+      "Formulario de Contacto",
+      "3 Revisiones",
+      "Alta de 12 Productos/Servicios",
+      "Pagos en línea",
+      "Comercio en línea",
+      "Configuración de Mailing List",
+      "Display de Reseñas",
+      "Entrega en 10 días hábiles",
+    ],
+    link: "#",
+  },
+  {
+    title: "Web PRO",
+    description:
+      "Diseñado para personas o empresas que desean una solución con todas las herramientas de marketing.",
+    price: "$16,999.00",
+    finalPrice: "$12,999.00",
+    features: [
+      "Web Premium +",
+      "Revisiones Ilimitadas",
+      "Optimización para buscadores",
+      "Sistema de citas en línea",
+      "Configuración de Google Tag Manager",
+      "Configuración de Pixel de Facebook",
+      "Configuración Google Analytics",
+      "Integración con Sistema Interno",
+      "Entrega en 15 días hábiles",
+    ],
+    link: "#",
+  },
+];
+---
+
+<section id="pricing" class="py-10">
+  <h2 class="my-10 text-4xl font-bold text-center">Precios y Paquetes</h2>
+  <div
+    class="container px-2 mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 text-white"
+  >
+    {
+      products.map((product) => (
+        <div class="bg-black/90 w-full min-h-[300px] rounded-4xl shadow-lg p-10">
+          <h3 class="text-3xl font-bold">{product.title}</h3>
+          <p class="mt-3">{product.description}</p>
+          <div class="real-price mt-5 line-through">{product.price}</div>
+          <div class="final-price text-lime-400 font-bold text-2xl mt-5">
+            {product.finalPrice}
+            <span class="text-base text-white font-normal">+IVA</span>
+          </div>
+          <ul class="mt-8 text-white">
+            {product.features.map((feature) => (
+              <li class="flex gap-1">
+                <Icon name="pixelarticons:check" size={24} />
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="#"
+            class="w-full mt-8 bg-purple-600 hover:bg-purple-800 transition duration-300 text-white font-bold py-2 px-4 rounded block"
+          >
+            Comprar ahora
+          </a>
+          <div class="mt-5">
+            <a href="#">o agenda una llamada</a>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

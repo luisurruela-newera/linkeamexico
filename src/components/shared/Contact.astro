@@ -1,19 +1,23 @@
 ---
 import { Icon } from "astro-icon/components";
 import ContactForm from "../react/contact/ContactForm";
+import SocialMedia from "./SocialMedia.astro";
 ---
 
-<section id="contact" class="py-10 bg-black text-white/90">
-  <div class="container mx-auto">
+<section id="contact" class="py-10 bg-black text-white/95">
+  <div class="container mx-auto px-5">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- Content  -->
-      <div class="flex items-center pb-10">
-        <div class="w-full md:max-w-2/3 text-center md:text-left px-3 md:px-0">
-          <h2 class="text-3xl md:text-5xl font-bold mb-4">En Contacto</h2>
+      <div class="flex items-center justify-center">
+        <div class="w-full text-center md:text-left px-3 md:px-0">
+          <div class="text-blue-300 font-thin">CONTACTO</div>
+          <h2 class="text-3xl md:text-5xl font-bold mb-4">
+            Agenda una llamada<br /> GRATUITA
+          </h2>
           <p class="text-white/65">
-            Te interesa alguno de mis servicios? Estaré encantado de ayudarte.
-            Envíame un mensaje y en breve me pondré en contacto contigo para
-            ponernos de acuerdo.
+            Te interesa alguno de mis servicios? Estaré encantado de darte ideas
+            para crecer tu negocio. Envíame un mensaje y en breve me pondré en
+            contacto contigo.
           </p>
 
           <div class="mt-10 w-fit mx-auto md:w-full">
@@ -22,19 +26,9 @@ import ContactForm from "../react/contact/ContactForm";
                 class="flex items-center gap-2 justify-center md:justify-start"
               >
                 <Icon
-                  name="pixelarticons:home"
-                  size={18}
-                  class="text-white/50"
-                />
-                Tabasco, México
-              </li>
-              <li
-                class="flex items-center gap-2 justify-center md:justify-start"
-              >
-                <Icon
                   name="pixelarticons:device-phone"
                   size={18}
-                  class="text-white/50"
+                  class="text-purple-600"
                 />
                 <a
                   href="tel:9932090424"
@@ -48,7 +42,7 @@ import ContactForm from "../react/contact/ContactForm";
                 <Icon
                   name="pixelarticons:mail"
                   size={18}
-                  class="text-white/50"
+                  class="text-purple-600"
                 />
                 <a
                   href="mailto:luis.urruela@gmail.com"
@@ -57,12 +51,29 @@ import ContactForm from "../react/contact/ContactForm";
                   >luis.urruela@gmail.com</a
                 >
               </li>
+              <li
+                class="flex items-center gap-2 justify-center md:justify-start"
+              >
+                <Icon
+                  name="pixelarticons:message-reply"
+                  size={18}
+                  class="text-purple-600"
+                />
+                <a
+                  href="https://api.whatsapp.com/send?phone=529932090424&text=Hola%20Luis%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n..."
+                  target="_blank"
+                  class="hover:text-white transition duration-300 ease-linear"
+                  >Enviar Whatsapp</a
+                >
+              </li>
             </ul>
+
+            <SocialMedia />
           </div>
         </div>
       </div>
       <!-- Form -->
-      <div>
+      <div class="flex-row items-center justify-center">
         <ContactForm client:load />
       </div>
     </div>

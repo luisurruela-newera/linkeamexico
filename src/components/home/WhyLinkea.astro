@@ -1,0 +1,69 @@
+---
+import edit from "../../assets/images/animated/edit.gif";
+import search from "../../assets/images/animated/magnifying-glass.gif";
+import monitor from "../../assets/images/animated/monitor.gif";
+import responsive from "../../assets/images/animated/responsive.gif";
+import shopping from "../../assets/images/animated/shopping.gif";
+import startup from "../../assets/images/animated/startup.gif";
+
+const features = [
+    {
+        img: monitor.src,
+        title: "Diseño a la medida",
+        text: "Un sitio único y diseñado para tu negocio.",
+    },
+    {
+        img: shopping.src,
+        title: "Optimizado para ventas",
+        text: "Un sitio único y diseñado para tu negocio.",
+    },
+    {
+        img: edit.src,
+        title: "Editable y Escalable",
+        text: "Crece a tu ritmo, realiza cambios fácilmente.",
+    },
+    {
+        img: search.src,
+        title: "Fácil de encontrar",
+        text: "Posicionamos tu sitio en buscadores para que sea fácil de encontrar.",
+    },
+    {
+        img: responsive.src,
+        title: "Diseño Multidispositivo",
+        text: "Diseñamos una experiencia única en teléfonos, tablets, laptops y pantallas grandes.",
+    },
+    {
+        img: startup.src,
+        title: "Páginas Rápidas",
+        text: "Cada segundo cuenta, no pierdas clientes con una web lenta.",
+    },
+];
+---
+
+<section id="why-linkea" class="py-10 px-2">
+    <div
+        class="container mx-auto bg-black text-white py-8 rounded-3xl md:py-10"
+    >
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-center">
+            {
+                features.map((feature) => (
+                    <div class="my-2">
+                        <div class="rounded-full bg-white p-5 w-fit mx-auto h-fit flex items-center mb-5">
+                            <img
+                                src={feature.img}
+                                alt={feature.title}
+                                class="w-20 mx-auto"
+                            />
+                        </div>
+                        <div class="px-10">
+                            <h4 class="font-semibold text-xl mb-3">
+                                {feature.title}
+                            </h4>
+                            <p class="text-stone-200">{feature.text}</p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
