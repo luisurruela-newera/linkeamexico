@@ -112,7 +112,7 @@ function ContactForm({}: FormProps) {
         <div className="mb-4">
           <label
             htmlFor="name"
-            className="block text-white/50 text-sm font-bold mb-2"
+            className="block text-white/80 text-sm font-bold mb-2"
           >
             Tu nombre:
           </label>
@@ -122,14 +122,14 @@ function ContactForm({}: FormProps) {
             name="name"
             required
             value={state.name}
-            className="border text-sm border-gray-700 w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
+            className="border text-sm border-gray-600 w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
             onChange={handleChange}
           />
         </div>
         <div className="mb-4">
           <label
             htmlFor="phone"
-            className="block text-white/50 text-sm font-bold mb-2"
+            className="block text-white/80 text-sm font-bold mb-2"
           >
             Teléfono con Whatsapp:
           </label>
@@ -139,14 +139,14 @@ function ContactForm({}: FormProps) {
             name="phone"
             value={state.phone}
             required
-            className="border text-sm border-gray-700 w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
+            className="border text-sm border-gray-600 w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
             onChange={handleChange}
           />
         </div>
         <div className="mb-6">
           <label
             htmlFor="message"
-            className="block text-white/50 text-sm font-bold mb-2"
+            className="block text-white/80 text-sm font-bold mb-2"
           >
             Mensaje:
           </label>
@@ -156,7 +156,7 @@ function ContactForm({}: FormProps) {
             rows={5}
             required
             value={state.message}
-            className="border text-sm border-gray-700 w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
+            className="border text-sm border-gray-600 w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
             placeholder='Con un "Hola Luis, me interesan tus servicios" es suficiente. Te mandaré mensaje de vuelta.'
             onChange={handleTextAreaChange}
           ></textarea>
