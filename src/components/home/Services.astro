@@ -10,29 +10,28 @@ const services = [
   },
   {
     icon: "digital-marketing",
-    title: "Desarrollo Web",
+    title: "Marketing Digital",
     description:
       "Hagamos de tus redes, algo más que un canal, convertámoslas en una conversación vibrante y auténtica, con creatividad y estrategia, fortaleciendo la relación con tus  seguidores y convirtiéndolos en clientes y embajadores de tu marca.",
   },
   {
     icon: "mobile-features",
-    title: "Aplicaciones",
+    title: "Apps Web y Móviles",
     description:
       "Software a la medida y Aplicaciones móviles. Toma el control de tu empresa desde la palma de tu mano. Automatiza procesos, genera reportes que te ayuden en la toma de decisiones. La  información es poder.",
   },
 ];
 ---
 
-<section id="services" class="py-10">
-  <div class="container px-2 mx-auto">
-    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6">
-
+<section id="services" class="pt-15">
+  <div class="container px-2 mx-auto md:px-0">
+    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12">
       Nuestros Servicios
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {
         services.map((service) => (
-          <div class="text-center md:text-start">
+          <div class="text-center md:text-start border border-gray-300 shadow-md shadow-gray-300 rounded-4xl p-8">
             <Icon name={service.icon} size={75} class="mb-3 mx-auto md:mx-0" />
             <h3 class="text-xl font-semibold mb-4">{service.title}</h3>
             <p class="text-gray-700">{service.description}</p>
