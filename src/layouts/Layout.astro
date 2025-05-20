@@ -2,6 +2,7 @@
 import { ClientRouter } from "astro:transitions";
 import Footer from "../components/layouts/Footer.astro";
 import Navbar from "../components/layouts/Navbar.astro";
+import { ViewTransitions } from "astro:transitions";
 import "../styles/global.css";
 import "aos/dist/aos.css";
 ---
@@ -14,13 +15,14 @@ import "aos/dist/aos.css";
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Linkea | Soluciones Digitales</title>
+    <ViewTransitions />
     <ClientRouter />
   </head>
   <body>
     <header>
       <Navbar />
     </header>
-    <main>
+    <main transition:animate="slide">
       <slot />
     </main>
     <footer>
