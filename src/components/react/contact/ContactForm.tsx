@@ -122,7 +122,7 @@ function ContactForm({}: FormProps) {
             name="name"
             required
             value={state.name}
-            className="border text-sm border-gray-600 w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
+            className="border text-sm border-purple-900 border-2 rounded-sm w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
             onChange={handleChange}
           />
         </div>
@@ -139,7 +139,7 @@ function ContactForm({}: FormProps) {
             name="phone"
             value={state.phone}
             required
-            className="border text-sm border-gray-600 w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
+            className="border text-sm border-purple-900 border-2 rounded-sm w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
             onChange={handleChange}
           />
         </div>
@@ -156,7 +156,7 @@ function ContactForm({}: FormProps) {
             rows={5}
             required
             value={state.message}
-            className="border text-sm border-gray-600 w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
+            className="border text-sm border-purple-900 border-2 rounded-sm w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
             placeholder='Con un "Hola Luis, me interesan tus servicios" es suficiente. Te mandaré mensaje de vuelta.'
             onChange={handleTextAreaChange}
           ></textarea>
