@@ -20,7 +20,7 @@ import SocialMedia from "./SocialMedia.astro";
             contacto contigo.
           </p>
 
-          <div class="mt-10 w-fit mx-auto md:w-full">
+          <div class="mt-6 w-fit mx-auto md:w-full">
             <ul class="text-white/65 flex flex-col md:ps-2 gap-2 text-sm">
               <li
                 class="flex items-center gap-2 justify-center md:justify-start"
@@ -54,16 +54,12 @@ import SocialMedia from "./SocialMedia.astro";
               <li
                 class="flex items-center gap-2 justify-center md:justify-start"
               >
-                <Icon
-                  name="pixelarticons:message-reply"
-                  size={18}
-                  class="text-purple-600"
-                />
                 <a
                   href="https://api.whatsapp.com/send?phone=529932090424&text=Hola%20Luis%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n..."
                   target="_blank"
-                  class="hover:text-white transition duration-300 ease-linear"
-                  >Enviar Whatsapp</a
+                  class="hover:text-white transition duration-300 ease-linear bg-lime-500 text-white rounded-md px-5 py-2 flex items-center gap-2"
+                  ><Icon name="whatsapp" size={18} class="text-white" />
+                  Enviar Whatsapp</a
                 >
               </li>
             </ul>
