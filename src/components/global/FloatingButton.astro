@@ -1,0 +1,17 @@
+---
+import { Icon } from "astro-icon/components";
+const phone = "529932090424";
+const message = "Hola Linkea, quiero más información";
+const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`;
+---
+
+<div class="fixed bottom-5 right-5 z-50">
+    <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-green-500 h-14 w-14 text-white rounded-full pt-2 pb-2 shadow-lg shadow-black/80 hover:scale-110 transition duration-300 flex items-center justify-center cursor-pointer"
+    >
+        <Icon name="whatsapp" size={35} />
+    </a>
+</div>
