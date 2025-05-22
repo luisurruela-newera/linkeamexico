@@ -1,0 +1,33 @@
+name: Deploy Linkea Mexico (Production)
+
+on:
+  push:
+    branches: [release]
+
+jobs:
+  build-and-deploy:
+    name: 🛠️ Build and Deploy via FTP
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Checkout code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🏗️ Build SGPYON
+        run: npm run build:prod
+
+      - name: 📂 Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          protocol: ftps
