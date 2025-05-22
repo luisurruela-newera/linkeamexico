@@ -1,19 +1,17 @@
 // src/components/MiFormulario.tsx
 import React, { type ChangeEvent, type FormEvent, useState } from "react";
 
-interface FormProps {
-  // Aquí puedes definir las props que este componente podría recibir
-}
-
 interface IFormState {
   name: string;
+  email: string;
   phone: string;
   message: string;
 }
 
-function ContactForm({}: FormProps) {
+function ContactForm() {
   const [state, setState] = useState<IFormState>({
     name: "",
+    email: "",
     phone: "",
     message: "",
   });
@@ -44,6 +42,7 @@ function ContactForm({}: FormProps) {
   const validateForm = () => {
     return (
       state.name.trim() !== "" &&
+      state.email.trim() !== "" &&
       state.phone.trim() !== "" &&
       state.message.trim() !== ""
     );
@@ -55,22 +54,34 @@ function ContactForm({}: FormProps) {
     setButtonDisabled(true);
 
     try {
-      const formData = new FormData(event.currentTarget as HTMLFormElement);
-      const endpoint = `${import.meta.env.BASE_URL}api/send-emails`;
+      const endpoint = "https://www.linkeamexico.com/blog/wp-json/linkeamexico-api/v1/contact";
+      
       const response = await fetch(endpoint, {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          name: state.name,
+          email: state.email,
+          phone: state.phone,
+          message: state.message
+        })
       });
 
       const data = await response.json();
 
-      if (response.ok) {
+      if (response.ok && data.success) {
         showSuccessMessage();
-      } else {
+      }
+      else {
         showErrorMessage();
+        console.error("Error en la respuesta del servidor:", data);
       }
     } catch (error) {
       showErrorMessage();
+      console.error("Error al enviar el mensaje:", error);
     }
   };
 
@@ -97,7 +108,7 @@ function ContactForm({}: FormProps) {
   };
 
   const resetForm = () => {
-    setState({ name: "", phone: "", message: "" });
+    setState({ name: "", email: "",phone: "", message: "" });
   };
 
   return (
@@ -122,7 +133,24 @@ function ContactForm({}: FormProps) {
             name="name"
             required
             value={state.name}
-            className="border text-sm border-purple-900 border-2 rounded-sm w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
+            className="text-sm border-purple-900 border-2 rounded-sm w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="email"
+            className="block text-white/80 text-sm font-bold mb-2"
+          >
+            Correo:
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            value={state.email}
+            className="text-sm border-purple-900 border-2 rounded-sm w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
             onChange={handleChange}
           />
         </div>
@@ -139,7 +167,7 @@ function ContactForm({}: FormProps) {
             name="phone"
             value={state.phone}
             required
-            className="border text-sm border-purple-900 border-2 rounded-sm w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
+            className="text-sm border-purple-900 border-2 rounded-sm w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
             onChange={handleChange}
           />
         </div>
@@ -156,7 +184,7 @@ function ContactForm({}: FormProps) {
             rows={5}
             required
             value={state.message}
-            className="border text-sm border-purple-900 border-2 rounded-sm w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
+            className="text-sm border-purple-900 border-2 rounded-sm w-full py-2 px-3 text-white/70 leading-tight focus:outline-none focus:shadow-outline"
             placeholder='Con un "Hola Luis, me interesan tus servicios" es suficiente. Te mandaré mensaje de vuelta.'
             onChange={handleTextAreaChange}
           ></textarea>
