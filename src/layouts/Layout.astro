@@ -38,6 +38,19 @@ const {
     <meta property="og:url" content={url} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_MX" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R3G8YNXM2G"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-R3G8YNXM2G");
+    </script>
     <ViewTransitions />
     <ClientRouter />
   </head>
