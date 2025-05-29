@@ -6,16 +6,51 @@ import Navbar from "../components/layouts/Navbar.astro";
 import { ViewTransitions } from "astro:transitions";
 import "../styles/global.css";
 import "aos/dist/aos.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+}
+
+const {
+  title = "Linkea México | Soluciones Digitales",
+  description = "Descubre las soluciones digitales de Linkea: Diseño web, Desarrollo de aplicaciones y Estrategias de Marketing para impulsar tu negocio.",
+  image = "/images/og.png",
+  url = Astro.url.href,
+} = Astro.props as Props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Linkea | Soluciones Digitales</title>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url.origin).href} />
+    <meta property="og:url" content={url} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R3G8YNXM2G"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-R3G8YNXM2G");
+    </script>
     <ViewTransitions />
     <ClientRouter />
   </head>
