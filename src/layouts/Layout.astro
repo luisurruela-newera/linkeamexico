@@ -12,6 +12,7 @@ interface Props {
   description?: string;
   image?: string;
   url?: string;
+  whatsappImage?: string;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   description = "Descubre las soluciones digitales de Linkea: Diseño web, Desarrollo de aplicaciones y Estrategias de Marketing para impulsar tu negocio.",
   image = "/images/og.jpg",
   url = Astro.url.href,
+  whatsappImage = "/images/square-og.jpg",
 } = Astro.props as Props;
 ---
 
@@ -35,6 +37,14 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(image, Astro.url.origin).href} />
+    <meta
+      property="og:image"
+      content={new URL(whatsappImage, Astro.url.origin).href}
+    />
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="600" />
+    <meta property="og:image:type" content="image/jpeg" />
+
     <meta property="og:url" content={url} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_MX" />
